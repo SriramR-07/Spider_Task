@@ -1,1 +1,42 @@
+const recipes = [
+    {
+        id: 1,
+        name: "Chicken Fried Rice",
+        image: "chicken-fried-rice.jpg",
+        ingredients: ["chicken", "rice", "tomato", "onion", "garlic", "olive-oil", "salt", "pepper"],
+        cookingProcedure: "Cook chicken and rice together, add tomato, onion, and garlic. Season with salt and pepper."
+    },
+    {
+        id: 2,
+        name: "Grilled Chicken",
+        image: "grilled-chicken.jpg",
+        ingredients: ["chicken", "olive-oil", "salt", "pepper"],
+        cookingProcedure: "Marinate chicken in olive oil, salt, and pepper. Grill until cooked."
+    },
+    {
+        id: 3,
+        name: "Tomato Soup",
+        image: "tomato-soup.jpg",
+        ingredients: ["tomato", "onion", "garlic", "olive-oil", "salt", "pepper"],
+        cookingProcedure: "Saute onion and garlic in olive oil, add tomato and season with salt and pepper. Blend until smooth."
+    }
+];
+
+// Function to display recipes
+function displayRecipes(recipes) {
+    const recipeContainer = document.getElementById("recipe-container");
+    recipeContainer.innerHTML = "";
+    recipes.forEach((recipe) => {
+        const recipeHTML = `
+            <div class="recipe">
+                <img src="${recipe.image}" alt="${recipe.name}">
+                <h2>${recipe.name}</h2>
+                <ul>
+                    <li>Ingredients:</li>
+                    ${recipe.ingredients.map((ingredient) => `<li>${ingredient}</li>`).join("")}
+                </ul>
+                <p>Cooking Procedure: ${recipe.cookingProcedure}</p>
+            </div>
+        `;
+        recipeContainer.innerHTML += recipeHTML
 
